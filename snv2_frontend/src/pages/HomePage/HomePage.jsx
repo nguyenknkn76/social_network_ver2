@@ -4,10 +4,9 @@ const HomePage = () =>{
     return(
         <div>
             <div>
-                <button><Link to="/login">Login</Link></button>
-            </div>
-            <div>
-                <button><Link to="/userhomepage">UserHomePage</Link></button>
+                <button className="btn btn-secondary">
+                    <Link to={"/login"} style={{ textDecoration: 'none', color: 'inherit' }}>Login</Link>
+                </button>
             </div>
         </div>
     )

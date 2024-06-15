@@ -4,7 +4,7 @@ import LoginForm from "../../components/LoginPageComps/LoginForm"
 import RegisterForm from "../../components/LoginPageComps/RegisterForm"
 import AuthService from "../../services/AuthService"
 import UserService from "../../services/UserService"
-
+import {Button} from "react-bootstrap"
 const LoginPage = () => {
     const [user, setUser] = useState(null)
     const [username, setUsername] = useState("")
@@ -56,9 +56,11 @@ const LoginPage = () => {
     return(
         <div>
             <div>
-                <button><Link to={"/"}>HomePage</Link></button>
+                <button className="btn btn-secondary">
+                    <Link to={"/"} style={{ textDecoration: 'none', color: 'inherit' }}>HomePage</Link>
+                </button>
             </div>
-            <p>this is login page</p>
+
             <div style={{color:"red"}}>{errMsg}</div>
             <div>
                 {
@@ -71,7 +73,9 @@ const LoginPage = () => {
                                 usernameOnChange={({target}) => {setUsername(target.value)}}
                                 passwordOnChange={({target}) => {setPassword(target.value)}}
                             />
-                            <button onClick={() => setAccountStatus(false)} className="btn btn-link">don't have account, register now</button>
+                            <div style={{ textAlign: 'center' }}> {/* Add this div with text-align style */}
+                                <button onClick={() => setAccountStatus(false)} className="btn btn-link">don't have account, register now</button>
+                            </div>
                         </div> :
                         <div>
                             <RegisterForm
@@ -85,7 +89,9 @@ const LoginPage = () => {
                                 newPasswordOnChange = {({target}) => {setNewPassword(target.value)}}
                                 newPassword2OnChange = {({target}) => {setNewPassword2(target.value)}}
                             /> 
-                            <button onClick={() => setAccountStatus(true)}>cancel</button>
+                            <div style={{ textAlign: 'center' }}> {/* Add this div with text-align style */}
+                                <button onClick={() => setAccountStatus(true)} className="btn btn-link"> login here  </button>
+                            </div>
                         </div> 
                 }
             </div>

@@ -1,31 +1,35 @@
 import React from "react";
+import { Form, Button } from 'react-bootstrap';
 
-const RegisterForm = ({newName, newUsername, newPassword,newPassword2, handleRegister, newNameOnChange, newUsernameOnChange, newPasswordOnChange, newPassword2OnChange}) => {
-    
-    return(
-        <div>
-            <h2>RegisterForm</h2>
-            <form onSubmit={handleRegister}>
-                <div>
-                    <label htmlFor="newname">name :</label>
-                    <input type="text" id = "newname" value={newName} name="newname" onChange={newNameOnChange}/>
-                </div>
-                <div>
-                    <label htmlFor="newusername">username: </label>
-                    <input type="text" id = "newusername" value={newUsername} name="newusername" onChange={newUsernameOnChange}/>
-                </div>
-                <div>
-                    <label htmlFor="newpassword">password: </label>
-                    <input type="password" id = "newpassword" value={newPassword} name="newpassword" onChange={newPasswordOnChange}/>
-                </div>
-                <div>
-                    <label htmlFor="newpassword">confirm password: </label>
-                    <input type="password" id = "newpassword" value={newPassword2} name="newpassword" onChange={newPassword2OnChange}/>
-                </div>
-                <button type="submit">register</button>
-            </form>
+const margin = {
+    marginBottom: '10px' // Use camelCase and quotes around the value
+};
+
+const RegisterForm = ({ newName, newUsername, newPassword, newPassword2, handleRegister, newNameOnChange, newUsernameOnChange, newPasswordOnChange, newPassword2OnChange }) => {
+    return (
+        <div className="login-form-container"> {/* Reuse the class from LoginForm */}
+            <Form onSubmit={handleRegister} className="login-form">
+                <h2>Register</h2>
+                <Form.Group>
+                    <Form.Label htmlFor="newname">Name</Form.Label>
+                    <Form.Control type="text" id="newname" value={newName} name="newname" onChange={newNameOnChange} />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="newusername">Username</Form.Label>
+                    <Form.Control type="text" id="newusername" value={newUsername} name="newusername" onChange={newUsernameOnChange} />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label htmlFor="newpassword">Password</Form.Label>
+                    <Form.Control type="password" id="newpassword" value={newPassword} name="newpassword" onChange={newPasswordOnChange} />
+                </Form.Group>
+                <Form.Group style={margin}>
+                    <Form.Label htmlFor="confirmPassword">Confirm Password</Form.Label>
+                    <Form.Control type="password" id="confirmPassword" value={newPassword2} name="confirmPassword" onChange={newPassword2OnChange} />
+                </Form.Group>
+                <Button variant="primary" type="submit" className="login-form-button">Register</Button> {/* Reuse the class from LoginForm */}
+            </Form>
         </div>
-    )
-}
+    );
+};
 
-export default RegisterForm
+export default RegisterForm;

@@ -201,10 +201,10 @@ const UserHomePage = () => {
 
     return(
         <div className={darkMode ? 'dark-mode' : 'light-mode'}>
-            <div>
+            <div className='container'>
                 <p>
                     {user === null ? `nothing or logout` : `${user.name} logged in `}
-                    <button onClick={handleLogout}>Logout</button>
+                    <button onClick={handleLogout} className='btn btn-secondary'>Logout</button>
                 </p>
             </div>
 
@@ -228,7 +228,7 @@ const UserHomePage = () => {
                                     />
                                 </div>
                             </React.Fragment>
-                        ) : <button onClick={()=>setCreatePostStatus(true)}>Create</button>
+                        ) : null
                     }
                 </div>
 
@@ -249,6 +249,7 @@ const UserHomePage = () => {
                             handleChooseUser={handleChooseUser}
                         />
                     </div>
+                    <button onClick={()=>setCreatePostStatus(true)} className='btn btn-info' style={{width: '50%', marginLeft: '5%'}}>Create Post</button>
                 </div>
 
                 <div className='row' style={{marginTop:'50px'}}>
@@ -274,12 +275,15 @@ const UserHomePage = () => {
                     </div>
                 </div>
 
-                <div className='row'>
+                <div className='row justify-content-center'>
                     <div className='col-lg-12'>
-                        <button onClick={() => {setLog([])}}>Clear Log</button>
                         <LogSection log={log}/>
+                        <div className='d-flex justify-content-center'>
+                            <button onClick={() => {setLog([])}} className='btn btn-secondary' style={{width: '50%'}}>Clear Log</button>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
             <BackToTopButton/>

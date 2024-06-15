@@ -70,7 +70,7 @@ footer {
     left: 50%; /* Đặt phần trái của form ở giữa màn hình theo chiều ngang */
     transform: translate(-50%, -50%); /* Dịch chuyển form lên trên và sang trái để căn giữa */
     
-    width: fit-content; /* Điều chỉnh độ rộng của form theo nhu cầu */
+    width: 500px; /* Điều chỉnh độ rộng của form theo nhu cầu */
     height: fit-content;
     
     background-color: white; /* Màu nền của form */
@@ -91,4 +91,6 @@ footer {
 }
 
 /* styles.css */
+
+
 
