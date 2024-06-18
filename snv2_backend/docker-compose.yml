@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: ./authservice
+      dockerfile: Dockerfile.auth
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+
+  user-service:
+    build:
+      context: ./userservice
+      dockerfile: Dockerfile.user
+    ports:
+      - "3004:3004"
+    environment:
+      - NODE_ENV=production
+
+  post-service:
+    build:
+      context: ./postservice
+      dockerfile: Dockerfile.post
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+
+  social-service:
+    build:
+      context: ./socialservice
+      dockerfile: Dockerfile.social
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=production
